@@ -5,7 +5,7 @@
 header{
   height: 100px;
 }
-.input{
+.input[type=text]{
   padding: 80px 0px;
   height: 300px;
 }
@@ -13,5 +13,6 @@ header{
   height:400px;
 }
 .user-display p{
+  font-size: 2rem;
   line-height: 1.9;
 }
