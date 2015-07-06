@@ -1,80 +1,101 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
-  </head>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script data-require="angular.js@1.3.10" data-semver="1.3.10"
+          src="https://code.angularjs.org/1.3.10/angular.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+</head>
 
-  <body ng-app="myApp" ng-init="female_name,job_title,tedious_task,celebrity,dirty_task,useless_skill,adjective,obnoxiuous_celbertity,huge_number='PLACHEHOLDER'">
-    <div class="container">
-      <header class="row">
-        <div class="col-md-4">
-          <img src="http://i59.tinypic.com/vevo10.png" border="0">
-        </div>
-        <div class="col-md-8">
-          <img src="http://i60.tinypic.com/2nh2hbt.png" border="0" alt="Image and video hosting by TinyPic">
-          <h1>Automate This!</h1> 
-        </div>
-      </header>
-      <section class="input row">
-        <div class="col-md-12">
-          <h2>Please provide the following information.</h2>
-        </div>
-        <div class="col-md-4">
-          <fieldset>
-            <legend>Personal</legend>
-            <div class="form-group">
-              <input type="text"  ng-model="female_name" class="form-control" placeholder="Female Name">
-            </div>
-            <div class="form-group">
-              <input type="text"  ng-model="job_title" class="form-control" placeholder="Job title">
-            </div>
-            <div class="form-group">
-              <input type="text"  ng-model="celebrity" class="form-control" placeholder="Celebrity(Mentor)">
-            </div>
-          </fieldset>
-        </div>
-        <div class="col-md-4">
-          <fieldset>
-            <legend>Work Life</legend>
-            <div class="form-group">
-              <input type="text"  ng-model="tedious_task" class="form-control" placeholder="Tedious Task">
-            </div>
-            <div class="form-group">
-              <input type="text"  ng-model="dirty_task" class="form-control" placeholder="Gross Task">
-            </div>
-            <div class="form-group">
-              <input type="text"  ng-model="useless_skill" class="form-control" placeholder="Meaningless Skill">
-            </div>
-          </fieldset>
-        </div>
-        <div class="col-md-4">
-          <fieldset>
-            <legend>The Plot Thickens</legend>
-            <div class="form-group">
-              <input type="text"  ng-model="adjective" class="form-control" placeholder="An Ajective(please!)">
-            </div>
-            <div class="form-group">
-              <input type="text"  ng-model="obnoxiuous_celbertity" class="form-control" placeholder="Obnoxiuous Celbertity">
-            </div>
-            
-            <div class="form-group">
-              <input type="text"  ng-model="huge_number" class="form-control" placeholder="Large Number">
-            </div>
-        </div>
-        
-      </section>
-      <hr>
-      <section class="user-display row">
-        <div class="col-md-6 col-md-push-2">
-        
-        <p>{{female_name}} was a person whos job title was {{job_title}}. She loved(and still does) technology. Although she loved parts of her job, she absolutely hated  {{tedious_task}} and {{dirty_task}}. So, {{female_name}} met with her life mentor {{celebrity}} who told her to learn how to {{useless_skill}} with Thinkful. Thinkful didn't offer a course on {{useless_skill}} so she studied programming instead. What a great decision! With her new skills, {{female_name}} built a(n) {{adjective}} robot named {{obnoxiuous_celbertity}} that not only loved to {{dirty_task}} but did it {{huge_number}} times faster.</p>
-        </div>
-      </section>
+<body ng-app="myApp">
+<div class="container" ng-controller="storyController">
+  <header class="row">
+    <div class="col-md-4">
+      <img src="http://i59.tinypic.com/vevo10.png" border="0">
     </div>
-  </body>
+    <div class="col-md-8">
+      <img src="http://i60.tinypic.com/2nh2hbt.png" border="0" alt="Image and video hosting by TinyPic">
+
+      <h1>Automate This!</h1>
+    </div>
+  </header>
+  <section class="input row">
+    <div class="col-md-12">
+      <h2>Please provide the following information.</h2>
+    </div>
+    <div class="col-md-4">
+      <fieldset>
+        <legend>Personal</legend>
+        <div class="form-group">
+          <label>Gender</label>
+          <select ng-model="gender" ng-change="genderStrFn()">
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="name" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="job_title" class="form-control" placeholder="Job title">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="celebrity" class="form-control" placeholder="Celebrity(Mentor)">
+        </div>
+
+      </fieldset>
+    </div>
+    <div class="col-md-4">
+      <fieldset>
+        <legend>Work Life</legend>
+        <div class="form-group">
+          <input type="text" ng-model="tedious_task" class="form-control" placeholder="Tedious Task">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="dirty_task" class="form-control" placeholder="Gross Task">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="useless_skill" class="form-control" placeholder="Meaningless Skill">
+        </div>
+      </fieldset>
+    </div>
+    <div class="col-md-4">
+      <fieldset>
+        <legend>The Plot Thickens</legend>
+        <div class="form-group">
+          <input type="text" ng-model="adjective" class="form-control" placeholder="An Ajective(please!)">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="obnoxiuous_celbertity" class="form-control" placeholder="Obnoxiuous Celbertity">
+        </div>
+
+        <div class="form-group">
+          <input type="text" ng-model="huge_number" class="form-control" placeholder="Large Number">
+        </div>
+      </fieldset>
+    </div>
+
+  </section>
+
+  <section class="user-display row">
+    <div class="col-md-8 col-md-push-2 panel panel-default">
+      <h1>The Story</h1>
+
+      <p>{{name}} was a person who's job title was {{job_title}}. {{genderStr2}} loved(and still does) technology.
+        Although {{genderStr2}}
+        loved parts of {{genderStr2}} job, {{genderStr2}} absolutely hated {{tedious_task}} and {{dirty_task}}. So,
+        {{name}} met with {{genderStr1}} life
+        mentor {{celebrity}} who told {{genderStr3}} to learn how to {{useless_skill}} with Thinkful. Thinkful didn't
+        offer a
+        course on {{useless_skill}} so {{genderStr2}} studied programming instead. What a great decision! With
+        {{genderStr1}} new skills,
+        {{name}} built a(n) {{adjective}} robot named {{obnoxiuous_celbertity}} that not only loved to {{dirty_task}}
+        but did it {{huge_number}} times faster.</p>
+    </div>
+  </section>
+</div>
+</body>
 
 </html>
