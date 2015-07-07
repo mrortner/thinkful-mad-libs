@@ -30,19 +30,19 @@
         <legend>Personal</legend>
         <div class="form-group">
           <label>Gender</label>
-          <select ng-model="gender" ng-change="genderSelection()">
+          <select ng-model="answers.gender" ng-change="genderSelection()">
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
         </div>
         <div class="form-group">
-          <input type="text" ng-model="name" class="form-control" placeholder="Name">
+          <input type="text" ng-model="answers.name" class="form-control" placeholder="Name">
         </div>
         <div class="form-group">
-          <input type="text" ng-model="job_title" class="form-control" placeholder="Job title">
+          <input type="text" ng-model="answers.job_title" class="form-control" placeholder="Job title">
         </div>
         <div class="form-group">
-          <input type="text" ng-model="celebrity" class="form-control" placeholder="Celebrity(Mentor)">
+          <input type="text" ng-model="answers.celebrity" class="form-control" placeholder="Celebrity(Mentor)">
         </div>
 
       </fieldset>
@@ -51,13 +51,13 @@
       <fieldset>
         <legend>Work Life</legend>
         <div class="form-group">
-          <input type="text" ng-model="tedious_task" class="form-control" placeholder="Tedious Task">
+          <input type="text" ng-model="answers.tedious_task" class="form-control" placeholder="Tedious Task">
         </div>
         <div class="form-group">
-          <input type="text" ng-model="dirty_task" class="form-control" placeholder="Gross Task">
+          <input type="text" ng-model="answers.dirty_task" class="form-control" placeholder="Gross Task">
         </div>
         <div class="form-group">
-          <input type="text" ng-model="useless_skill" class="form-control" placeholder="Meaningless Skill">
+          <input type="text" ng-model="answers.useless_skill" class="form-control" placeholder="Meaningless Skill">
         </div>
       </fieldset>
     </div>
@@ -65,14 +65,14 @@
       <fieldset>
         <legend>The Plot Thickens</legend>
         <div class="form-group">
-          <input type="text" ng-model="adjective" class="form-control" placeholder="An Ajective(please!)">
+          <input type="text" ng-model="answers.adjective" class="form-control" placeholder="An Ajective(please!)">
         </div>
         <div class="form-group">
-          <input type="text" ng-model="obnoxious_celebrity" class="form-control" placeholder="Obnoxiuous Celebrity">
+          <input type="text" ng-model="answers.obnoxious_celebrity" class="form-control" placeholder="Obnoxiuous Celebrity">
         </div>
 
         <div class="form-group">
-          <input type="text" ng-model="huge_number" class="form-control" placeholder="Large Number">
+          <input type="text" ng-model="answers.huge_number" class="form-control" placeholder="Large Number">
         </div>
       </fieldset>
     </div>

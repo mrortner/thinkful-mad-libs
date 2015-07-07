@@ -14,9 +14,9 @@ angular.module('myApp', [])
             "gender":""
         };
         $scope.genderSelection = function(){
-            $scope.gender1 = $scope.gender === "F" ? "her" : "his";
-            $scope.gender2 = $scope.gender === 'F' ? "she" : "he";
-            $scope.gender3 = $scope.gender === 'F' ? "her" : "him";
+            $scope.answers.gender1 = $scope.answers.gender === "F" ? "her" : "his";
+            $scope.answers.gender2 = $scope.answers.gender === 'F' ? "she" : "he";
+            $scope.answers.gender3 = $scope.answers.gender === 'F' ? "her" : "him";
         }
         $scope.genderSelection();
 
