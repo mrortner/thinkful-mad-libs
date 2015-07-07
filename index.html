@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
- 
+
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script data-require="angular.js@1.3.10" data-semver="1.3.10"
@@ -30,7 +30,7 @@
         <legend>Personal</legend>
         <div class="form-group">
           <label>Gender</label>
-          <select ng-model="gender" ng-change="genderStrFn()">
+          <select ng-model="gender" ng-change="genderSelection()">
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
@@ -68,7 +68,7 @@
           <input type="text" ng-model="adjective" class="form-control" placeholder="An Ajective(please!)">
         </div>
         <div class="form-group">
-          <input type="text" ng-model="obnoxiuous_celbertity" class="form-control" placeholder="Obnoxiuous Celbertity">
+          <input type="text" ng-model="obnoxious_celebrity" class="form-control" placeholder="Obnoxiuous Celebrity">
         </div>
 
         <div class="form-group">
@@ -83,16 +83,16 @@
     <div class="col-md-8 col-md-push-2 panel panel-default">
       <h1>The Story</h1>
 
-      <p>{{name}} was a person who's job title was {{job_title}}. {{genderStr2}} loved(and still does) technology.
-        Although {{genderStr2}}
-        loved parts of {{genderStr2}} job, {{genderStr2}} absolutely hated {{tedious_task}} and {{dirty_task}}. So,
-        {{name}} met with {{genderStr1}} life
-        mentor {{celebrity}} who told {{genderStr3}} to learn how to {{useless_skill}} with Thinkful. Thinkful didn't
+      <p>{{answers.name}} was a person who's job title was {{answers.job_title}}. {{answers.gender2}} loved(and still does) technology.
+        Although {{answers.gender2}}
+        loved parts of {{answers.genderStr2}} job, {{answers.gender2}} absolutely hated {{answers.tedious_task}} and {{answers.dirty_task}}. So,
+        {{answers.name}} met with {{answers.gender1}} life
+        mentor {{answers.celebrity}} who told {{answers.gender3}} to learn how to {{answers.useless_skill}} with Thinkful. Thinkful didn't
         offer a
-        course on {{useless_skill}} so {{genderStr2}} studied programming instead. What a great decision! With
-        {{genderStr1}} new skills,
-        {{name}} built a(n) {{adjective}} robot named {{obnoxiuous_celbertity}} that not only loved to {{dirty_task}}
-        but did it {{huge_number}} times faster.</p>
+        course on {{answers.useless_skill}} so {{answers.gender2}} studied programming instead. What a great decision! With
+        {{answers.gender1}} new skills,
+        {{answers.name}} built a(n) {{answers.adjective}} robot named {{answers.obnoxious_celebrity}} that not only loved to {{answers.dirty_task}}
+        but did it {{answers.huge_number}} times faster.</p>
     </div>
   </section>
 </div>
