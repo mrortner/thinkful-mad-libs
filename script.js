@@ -1,5 +1,5 @@
 // Code goes here
-angular.module('myApp', [])
+angular.module('myApp', ['ngAnimate'])
     .controller("storyController", function ($scope, $attrs) {
         $scope.answers = {
             "name": "",
@@ -26,12 +26,18 @@ angular.module('myApp', [])
             if($scope.myForm.$valid) {
                 $scope.form = "";
                 $scope.results = "true";
+                $scope.myForm.$setPristine();
             }
         };
 
         $scope.resetForm = function() {
             $scope.form = "true";
             $scope.results = "";
+            $scope.myForm.$setPristine();
         };
 
+
+
     });
+
+

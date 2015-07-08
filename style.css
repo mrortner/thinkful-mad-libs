@@ -16,3 +16,26 @@ header{
   font-size: 2rem;
   line-height: 1.9;
 }
+
+#madlib {
+  width: 100%;
+  transition: 0.4s all ease-out;
+}
+#madlib.extra {
+  box-shadow: 0 0 10px 3px black;
+  color: black;
+}
+#madlib.ng-hide-add,
+#madlib.ng-hide-remove {
+  display: block !important;
+}
+#madlib.ng-hide-remove,
+#madlib.ng-hide-add.ng-hide-add-active {
+  margin-left: -80px;
+  opacity: 0;
+}
+#madlib.ng-hide-remove.ng-hide-remove-active,
+#madlib.ng-hide-add {
+  margin-left: 0;
+  opacity: 1;
+}
