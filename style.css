@@ -17,13 +17,29 @@ header{
   line-height: 1.9;
 }
 
-#madlib {
+#myErrors {
   width: 100%;
   transition: 0.4s all ease-out;
 }
-#madlib.extra {
-  box-shadow: 0 0 10px 3px black;
-  color: black;
+#myErrors.ng-hide-add,
+#myErrors.ng-hide-remove {
+  display: block !important;
+}
+#myErrors.ng-hide-remove,
+#myErrors.ng-hide-add.ng-hide-add-active {
+  margin-left: -80px;
+  opacity: 0;
+}
+
+#myErrors.ng-hide-remove.ng-hide-remove-active,
+#myErrors.ng-hide-add {
+  margin-left: 0;
+  opacity: 1;
+}
+
+#madlib {
+  width: 100%;
+  transition: 0.4s all ease-out;
 }
 #madlib.ng-hide-add,
 #madlib.ng-hide-remove {

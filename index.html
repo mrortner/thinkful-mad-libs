@@ -12,15 +12,16 @@
 <body ng-app="myApp">
 
 <div class="container" ng-controller="storyController">
-  <div ng-if="myForm.$submitted" ng-messages="myForm.$error" >
+
+  <div ng-show="myForm.$submitted" ng-messages="myForm.$error" id="myErrors">
     <div ng-if="myForm.$error.required" ng-message="required" class="alert alert-danger">
       All Fields are required
     </div>
     <div ng-if="myForm.$error.number" ng-message="number" class="alert alert-danger">
       Large Number must be a number
     </div>
-
   </div>
+
   <header class="row">
     <div class="col-md-4">
       <img src="http://i59.tinypic.com/vevo10.png" border="0">
