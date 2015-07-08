@@ -11,6 +11,7 @@
 
 <body ng-app="myApp">
 <div class="container" ng-controller="storyController">
+
   <header class="row">
     <div class="col-md-4">
       <img src="http://i59.tinypic.com/vevo10.png" border="0">
@@ -21,43 +22,54 @@
       <h1>Automate This!</h1>
     </div>
   </header>
-  <section class="input row">
+
     <div class="col-md-12">
       <h2>Please provide the following information.</h2>
+      <div ng-if="myForm.$submitted" ng-messages="myForm.$error" >
+                    <span class="alert alert-danger" ng-message="required">
+                      All Fields are required
+                    </span>
+                    <span class="alert alert-danger" ng-message="number">
+                      Large Number must be a number
+                    </span>
+
+      </div>
     </div>
+  <section class="input row" ng-show="form">
+    <form name="myForm" novalidate ng-submit="submitForm()">
+
     <div class="col-md-4">
       <fieldset>
         <legend>Personal</legend>
         <div class="form-group">
           <label>Gender</label>
-          <select ng-model="answers.gender" ng-change="genderSelection()">
+          <select ng-model="answers.gender" ng-change="genderSelection()" required>
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
         </div>
         <div class="form-group">
-          <input type="text" ng-model="answers.name" class="form-control" placeholder="Name">
+          <input type="text" ng-model="answers.name" class="form-control" placeholder="Name" name="name" required>
         </div>
         <div class="form-group">
-          <input type="text" ng-model="answers.job_title" class="form-control" placeholder="Job title">
+          <input type="text" ng-model="answers.job_title" class="form-control" placeholder="Job title" required>
         </div>
         <div class="form-group">
-          <input type="text" ng-model="answers.celebrity" class="form-control" placeholder="Celebrity(Mentor)">
+          <input type="text" ng-model="answers.celebrity" class="form-control" placeholder="Celebrity(Mentor)" required>
         </div>
-
       </fieldset>
     </div>
     <div class="col-md-4">
       <fieldset>
         <legend>Work Life</legend>
         <div class="form-group">
-          <input type="text" ng-model="answers.tedious_task" class="form-control" placeholder="Tedious Task">
+          <input type="text" ng-model="answers.tedious_task" class="form-control" placeholder="Tedious Task" required>
         </div>
         <div class="form-group">
-          <input type="text" ng-model="answers.dirty_task" class="form-control" placeholder="Gross Task">
+          <input type="text" ng-model="answers.dirty_task" class="form-control" placeholder="Gross Task" required>
         </div>
         <div class="form-group">
-          <input type="text" ng-model="answers.useless_skill" class="form-control" placeholder="Meaningless Skill">
+          <input type="text" ng-model="answers.useless_skill" class="form-control" placeholder="Meaningless Skill" required>
         </div>
       </fieldset>
     </div>
@@ -65,21 +77,23 @@
       <fieldset>
         <legend>The Plot Thickens</legend>
         <div class="form-group">
-          <input type="text" ng-model="answers.adjective" class="form-control" placeholder="An Ajective(please!)">
+          <input type="text" ng-model="answers.adjective" class="form-control" placeholder="An Ajective(please!)" required>
         </div>
         <div class="form-group">
-          <input type="text" ng-model="answers.obnoxious_celebrity" class="form-control" placeholder="Obnoxiuous Celebrity">
+          <input type="text" ng-model="answers.obnoxious_celebrity" class="form-control" placeholder="Obnoxiuous Celebrity" required>
         </div>
 
         <div class="form-group">
-          <input type="text" ng-model="answers.huge_number" class="form-control" placeholder="Large Number">
+          <input type="number" ng-model="answers.huge_number" class="form-control" placeholder="Large Number" required >
         </div>
       </fieldset>
     </div>
+    <button class="btn btn-primary">Generate Mad Lib</button>
+    </form>
 
   </section>
 
-  <section class="user-display row">
+  <section class="user-display row" ng-show="results">
     <div class="col-md-8 col-md-push-2 panel panel-default">
       <h1>The Story</h1>
 
@@ -93,9 +107,15 @@
         {{answers.gender1}} new skills,
         {{answers.name}} built a(n) {{answers.adjective}} robot named {{answers.obnoxious_celebrity}} that not only loved to {{answers.dirty_task}}
         but did it {{answers.huge_number}} times faster.</p>
+      <form name="reset" ng-submit="resetForm()">
+        <button class="btn btn-primary">Reset</button>
+        </form>
     </div>
+
   </section>
 </div>
+<script src="https://code.angularjs.org/1.3.10/angular-messages.min.js" type="text/javascript"></script>
+
 </body>
 
 </html>
