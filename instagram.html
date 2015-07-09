@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="gramSearch">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="instagram.css">
+    <script src="https://code.angularjs.org/1.4.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.2/angular-animate.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.2/angular-messages.min.js"></script>
+    <script src="instagram.js"></script>
+    <title>Gram.Search-Search your grams!</title>
+</head>
+<body ng-controller="SearchCtrl">
+<div class="container">
+    <div class="text-center row">
+        <img src="logo.png" class="logo">
+
+        <div class="form-group text-right">
+            <div class="col-md-4 col-md-push-4 search-form">
+                <form name="searchForm" ng-submit="getResults()" novalidate>
+                    <input class="form-control input-lg" ng-class="" placeholder="Search" required name="searchStr"
+                           ng-pattern="/^\S{3,}$/" ng-model="currentSearch.searchStr">
+
+                    <div class="errors text-error" ng-if="searchForm.$submitted" ng-messages="searchForm.searchStr.$error">
+                        <span ng-message="required">You must search for something.</span>
+                        <span ng-message="pattern">Looks like that is an invalid search tag.</span>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-lg entypo-search search-submit"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="text-center">{{ currentSearch.message }}</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="result col-md-3" ng-repeat="entry in currentSearch.results">
+            <div class="thumbnail">
+                <a href="{{entry.link}}">
+                    <img ng-src="{{entry.images.standard_resolution.url}}" alt="{{entry.caption.text}}">
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
